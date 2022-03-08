@@ -29,10 +29,11 @@ const handlePost = (e)=>{
   e.preventDefault()
   const bank = e.target.elements.bank.value;
   const btype = e.target.elements.type.value;
+  const bfoiz = e.target.elements.foiz.value;
   fetch( `${PORT}/banks`,{
     method: "post",
     headers:{"Content-Type": "application/json"},
-    body:JSON.stringify({bank, btype})
+    body:JSON.stringify({bank, btype,bfoiz})
   })
   .then(res => res.json())
   .then(data => console.log(data))
@@ -44,10 +45,11 @@ const handlePut = (e)=>{
   const bank = e.target.elements.bank.value;
   const btype = e.target.elements.type.value;
   const bId = e.target.elements.id.value;
+  const bfoiz = e.target.elements.foiz.value;
   fetch( `${PORT}/banks`,{
     method: "put",
     headers:{"Content-Type": "application/json"},
-    body:JSON.stringify({bId,bank, btype})
+    body:JSON.stringify({bId,bank, btype,bfoiz})
   })
   .then(res => res.json())
   .then(data => console.log(data))
@@ -134,6 +136,7 @@ return (
         <h3>New bank created</h3>
         <input name='bank' type="text" placeholder='Name' required/>
         <input name='type' type="number" placeholder='Year ' required/>
+        <input name='foiz' type="number" placeholder='% ' required/>
         <button type='submit'>Add</button>
       </form>
 
@@ -147,6 +150,7 @@ return (
         <input name='id' type="number" placeholder='Bank id' required/>
         <input name='bank' type="text" placeholder='Change name' required/>
         <input name='type' type="number" placeholder='Change year' required/>
+        <input name='foiz' type="number" placeholder='%' required/>
         <button type='submit'>Change</button>
       </form>
       <table className='bank'>
