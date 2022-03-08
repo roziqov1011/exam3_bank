@@ -6,7 +6,7 @@ import up from './assets/img/update.png'
 import de from './assets/img/delete.png'
 import bank2 from './assets/img/bank2.png'
 import haridor from './assets/img/haridor.png'
-const PORT =  'https://exam-3-server-3p5sy.ondigitalocean.app';
+const PORT =  'https://exam3server.herokuapp.com';
 
 function App() {
   const [creditorr, setCreditor] = useState([])
